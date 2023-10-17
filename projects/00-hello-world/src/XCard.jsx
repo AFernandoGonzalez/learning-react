@@ -1,17 +1,15 @@
-import React from 'react'
+
 import './xcard.css'
 import { useState } from 'react'
 
-const XCard = ({ formatUsername, userName, name}) => {
+const XCard = ({ children, userName, initialIsFollowing}) => {
 
-    const [isFollowing, setIsFollowing] = useState(false)
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
     const text = isFollowing ? "Follow" : "Unfollow"
     const buttonClassName = isFollowing
         ? 'tw-followCard-button is-following' :
         'tw-followCard-button';
-
-    
 
 
     const handleClick = () => {
@@ -27,8 +25,8 @@ const XCard = ({ formatUsername, userName, name}) => {
                   src={`https://unavatar.io/${userName}`}
               />
               <div className='tw-followCard-info'>
-                  <strong>{name}</strong>
-                  <span className='tw-followCard-infoUserName'>{formatUsername(userName)}</span>
+                  <strong>{children}</strong>
+                  <span className='tw-followCard-infoUserName'>@{userName}</span>
               </div>
           </header>
 

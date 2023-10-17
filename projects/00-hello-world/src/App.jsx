@@ -1,29 +1,38 @@
+import { useState } from 'react'
 import './App.css'
 import XCard from './XCard'
-import { useState } from 'react'
 
 const App = () => {
 
+    // const formatUsername = (userName) => `@${userName}`
 
-    const formatUsername = (userName) => `@${userName}`
+    const users = [
+        {
+            userName: "fernando",
+            name: "fernando",
+            isFollowing: true
+        },
+        {
+            userName: "midudev",
+            name: "midudev",
+            isFollowing: false
+        }
+    ]
 
     return (
         <div className='App'>
-            <XCard
-                formatUsername={formatUsername}
-                userName="fernando"
-                name="fernando"
-                isFollowing={true} />
-            <XCard
-                formatUsername={formatUsername}
-                userName="fer"
-                name="fer"
-                isFollowing={false} />
-            <XCard
-                formatUsername={formatUsername}
-                userName="midudev"
-                name="midudev"
-                isFollowing={true} />
+            {users?.map((user)=> {
+                const { userName, name, isFollowing} = user;
+                return(
+                    <XCard
+                    key={userName+name}
+                        userName={userName}
+                        initialIsFollowing={isFollowing}
+                    >
+                        {name}
+                    </XCard>
+                )
+            })}
         </div>
     )
 }
