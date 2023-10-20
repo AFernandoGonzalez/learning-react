@@ -1,29 +1,14 @@
 import { useEffect, useState } from "react"
+import { SimpleCounter } from "./components/SimpleCounter"
+import { TodoList } from "./components/TodoList"
+
 
 export const App = () => {
-
-    const [count, setCount] = useState(0)
-
-    useEffect(() => {
-        document.title = `Count ${count}`
-
-        return () => {
-            document.title = 'React app'
-        }
-
-
-    }, [count])
-
-
-    const increment = () => {
-        setCount(count + 1)
-    }
-
     return (
         <main>
-
-            <h1>Hi there {count}</h1>
-            <button onClick={increment}>Increase Here</button>
+            <h1>Learning Use Effect</h1>
+            <SimpleCounter />
+            <TodoList/>
         </main>
     )
 }
