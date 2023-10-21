@@ -34,10 +34,10 @@ export const DataFetching = () => {
                     (<div className="error-message">{error}</div>)
                     : (
                         <div>
-                            <h2>Total Posts {posts.length}</h2>
-                            <ul>
+                            <h5>Total Posts {posts.length}</h5>
+                            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px"}}>
                                 {posts.map((post) => (
-                                    <li key={post.id}>{post.title}</li>
+                                    <li style={{ textAlign: "left"}} key={post.id}>{post.body}</li>
                                 ))}
                             </ul>
                         </div>
