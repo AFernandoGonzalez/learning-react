@@ -44,7 +44,9 @@ export const TodoList = () => {
                 value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)}
             />
-            <button onClick={addTodo}>Add Todo</button>
+            <button
+                style={{ color: "white" }}
+                onClick={addTodo}>Add Todo</button>
             {todoList.map((todo) => {
                 return (
                     <ul key={todo.id} style={{ listStyle: "none" }}>
