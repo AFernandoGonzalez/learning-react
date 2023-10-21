@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react"
 
 export const TodoList = () => {
-    const [todoList, setTodoList] = useState([
-        { id: 1, text: 'Learn React', completed: false },
-        { id: 2, text: 'Build a todo app', completed: false },
-        { id: 3, text: 'Add JSON data', completed: true },
-    ])
+    const [todoList, setTodoList] = useState(() => {
+        const storedData = localStorage.getItem('todoList');
+        return storedData ? JSON.parse(storedData) : [];
+    });
+
 
     const [newTodo, setNewTodo] = useState('')
+
+    //save item to storage
+    useEffect(() => {
+        localStorage.setItem('todoList', JSON.stringify(todoList))
+    }, [todoList])
 
     //update the complete checkbox
     const completedTracker = (todoId) => {
@@ -56,4 +61,3 @@ export const TodoList = () => {
         </div>
     )
 }
-

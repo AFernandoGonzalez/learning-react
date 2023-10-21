@@ -19,7 +19,7 @@ export const SimpleCounter = () => {
 
     return(
         <div>
-            <h4>Simple Counter</h4>
+            <h3>Simple Counter</h3>
             <p>Live Count: {count}</p>
             <button onClick={decrease}>Decrease</button>
             <button onClick={increment}>Increase</button>
