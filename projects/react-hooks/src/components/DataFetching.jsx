@@ -27,7 +27,7 @@ export const DataFetching = () => {
     }, [])
 
     return (
-        <main>
+        <section style={{ backgroundColor: "rgba(75,75,75,.3)" }}>
             <h3>Data Fetching</h3>
             <div>
                 {error ?
@@ -44,6 +44,6 @@ export const DataFetching = () => {
                     )
                 }
             </div>
-        </main>
+        </section>
     )
 }

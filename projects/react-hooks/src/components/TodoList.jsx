@@ -37,7 +37,7 @@ export const TodoList = () => {
     }
 
     return (
-        <div>
+        <section style={{ backgroundColor: "rgba(75,75,75,.3)" }}>
             <h3>Todo List</h3>
             <input
                 type="text"
@@ -60,6 +60,6 @@ export const TodoList = () => {
                     </ul>
                 )
             })}
-        </div>
+        </section>
     )
 }

@@ -43,7 +43,7 @@ export const SimpleCounter = () => {
     
 
     return (
-        <div>
+        <section style={{ backgroundColor: "rgba(75,75,75,.3)", padding: "1rem" }}>
             <h3>Simple Counter</h3>
             <p>Live Count: {count}</p>
             <div>
@@ -62,6 +62,6 @@ export const SimpleCounter = () => {
             </div>
             <button style={{ color: "white" }} onClick={decrease}>Decrease</button>
             <button style={{ color: "white" }} onClick={increment}>Increase</button>
-        </div>
+        </section>
     )
 }
