@@ -3,6 +3,7 @@ import { SimpleCounter } from "./components/SimpleCounter"
 import { TodoList } from "./components/TodoList"
 import { DataFetching } from "./components/DataFetching"
 import { CountdownTimerApp } from "./components/CountdownTimerApp"
+import { EventListener } from "./components/EventListener"
 
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
             <TodoList/>
             <DataFetching/>
             <CountdownTimerApp/>
+            <EventListener/>
         </main>
     )
 }
