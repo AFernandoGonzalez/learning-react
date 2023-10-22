@@ -1,59 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const CountdownTimerApp = () => {
-    const [duration, setDuration] = useState(0); // Initial duration in seconds
-    const [isRunning, setIsRunning] = useState(false);
-    const [remainingTime, setRemainingTime] = useState(60);
+    const [currentTime, setCurrentTime] = useState(60)
+    const [isCounting, setIsCounting] = useState(false)
+    const [customTime, setCustomTime] = useState(0)
 
-    // Implement timer logic with useEffect
+
     useEffect(() => {
         let timer;
 
-        if (isRunning && remainingTime > 0) {
-            timer = setInterval(() => {
-                setRemainingTime(remainingTime - 1);
-            }, 1000);
-        }
-        // Cleanup: Clear the timer when the component unmounts or the timer stops
-        return () => {
-            clearInterval(timer);
-        };
-    }, [isRunning, remainingTime]);
+        timer = setInterval(() =>{
+            if(isCounting && currentTime > 0) {
+                setCurrentTime(currentTime - 1)
+            }
+        }, 1000)
+        return(() => {
+            clearInterval(timer)
+        })
+    }, [isCounting, currentTime])
 
-    // Start and stop the timer
     const startTimer = () => {
-        setIsRunning(true);
-    };
-
-    const stopTimer = () => {
-        setIsRunning(false);
-    };
-
-    const changeDuration = () => {
-        setRemainingTime(parseInt(duration, 10))
+        setIsCounting(true)
     }
 
+    const stopTimer = () => {
+        setIsCounting(false)
+    }
+
+    const changeTime = () => {
+        setCurrentTime(parseInt(customTime, 10))
+    }
 
     return (
-        <div style={{ backgroundColor: "rgba(75,75,75,.3)", padding: "1rem" , display: "flex", gap: "1rem", flexDirection: "column"}}>
+        <div style={{ backgroundColor: "rgba(75,75,75,.3)", padding: "1rem", display: "flex", gap: "1rem", flexDirection: "column" }}>
             <h2>Countdown Timer</h2>
-            <p>Remaining Time: {remainingTime} seconds</p>
             <input
                 type='number'
                 min={0}
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
+                value={customTime}
+                onChange={(e) => setCustomTime(e.target.value)}
             />
             <button
-                onClick={changeDuration}
                 style={{ color: "white" }}
-            >Change Duration</button>
-            <button
-                style={{ color: "white" }}
-                onClick={startTimer}>Start</button>
-            <button
-                style={{ color: "white" }}
-                onClick={stopTimer}>Stop</button>
+                onClick={changeTime}
+            >Change Time</button>
+            <span>Time Left : {currentTime}</span>
+            <div>
+                <button
+                    style={{ color: "white" }}
+                    onClick={startTimer}
+                >Start</button>
+                <button
+                    style={{ color: "white" }}
+                    onClick={stopTimer}
+                >Stop</button>
+            </div>
         </div>
     );
 }
