@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const randomColorsPalate = [
+const colorsPalate = [
     "#CB2821",
     "#FFFF00",
     "#317F43",
@@ -11,36 +11,34 @@ const randomColorsPalate = [
 ]
 
 export const EventListener = () => {
-    const [colors, setColors] = useState(randomColorsPalate)
-    const [isOn, setIsOn] = useState(false)
+
+    const [isActivated, setIsActivated] = useState(false)
 
     useEffect(() => {
-        const div = document.getElementById('randomColors')
-        const changeColors = () => {
-            const randomColorIndex = Math.floor(Math.random() * colors.length)
-            let chosenColor = colors[randomColorIndex]
-            div.style.backgroundColor = chosenColor
-        }
+        randomizeColor()
+console.log(randomizeColor());
+    }, [])
 
-        const clickHandler = isOn ? changeColors : null;
-        div.addEventListener('click', clickHandler);
+    const randomizeColor = () => {
+        const randomColorIndex = Math.floor(Math.random() * colorsPalate.length)
 
-        return (() => {
-            div.removeEventListener('click', clickHandler)
-        })
-
-    }, [colors, isOn])
+      
+        return colorsPalate[randomColorIndex]
+    }
 
 
     return (
         <section style={{ backgroundColor: "rgba(75,75,75,.3)", padding: "1rem" }}>
             <h4>Event Listener</h4>
             <div>
-                <div id="randomColors">Colors</div>
+                <div
+                    style={{ height: "5rem", display: "flex", flexDirection: "column", alignContent: "center", justifyContent: "center" }} id="randomColors">
+                    Colors
+                </div>
                 <button
                     style={{ color: "white" }}
-                    onClick={() => setIsOn(!isOn)}
-                >{isOn ? "On" : "Off"}</button>
+                    onClick={()=> setIsActivated(!isActivated)}
+                >{isActivated ? "Deactivate Listener" : "Activate Listener"}</button>
             </div>
         </section>
     )
