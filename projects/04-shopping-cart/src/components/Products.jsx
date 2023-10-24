@@ -1,10 +1,9 @@
 
 export const Products = ({ products }) => {
 
-    console.log(products);
 
     return (
-        <section>
+        <section  className="products">
             <ul >
                 {
                     products.map((product) => {
@@ -15,8 +14,8 @@ export const Products = ({ products }) => {
                                     src={product.thumbnail}
                                     alt={product.title}
                                 />
-                                <li>{product.title}</li>
-                                <li>${product.price}</li>
+                                <h3>{product.title}</h3>
+                                <span>${product.price}</span>
                                 <button>Add to Cart</button>
                             </li>
                         )
