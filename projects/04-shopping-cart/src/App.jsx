@@ -4,6 +4,7 @@ import { Products } from './components/Products'
 import { useState } from 'react'
 import { Header } from './components/Header'
 import { useFilters } from './hooks/useFilters'
+import { Cart } from './components/Cart'
 
 function App() {
   const [products, setProducts] = useState(initialProducts)
@@ -16,6 +17,7 @@ function App() {
   return (
     <main className='main'>
       <h1>Shopping Cart</h1>
+      <Cart/>
       <Header  />
       <Products products={filteredProducts} />
     </main>

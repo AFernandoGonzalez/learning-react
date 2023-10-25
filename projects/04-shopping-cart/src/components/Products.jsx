@@ -16,7 +16,7 @@ export const Products = ({ products }) => {
                                 />
                                 <h3>{product.title}</h3>
                                 <span>${product.price}</span>
-                                <button>Add to Cart</button>
+                                <button style={{ color: 'white'}}>Add to Cart</button>
                             </li>
                         )
 
