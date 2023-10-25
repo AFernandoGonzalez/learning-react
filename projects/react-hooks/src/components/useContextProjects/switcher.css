@@ -1,0 +1,14 @@
+
+.light {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.sectionTheme {
+    margin: 2rem;
+    padding: 2rem;
+}

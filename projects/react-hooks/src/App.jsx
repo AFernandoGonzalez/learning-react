@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react"
-import { SimpleCounter } from "./components/SimpleCounter"
-import { TodoList } from "./components/TodoList"
-import { DataFetching } from "./components/DataFetching"
-import { CountdownTimerApp } from "./components/CountdownTimerApp"
-import { EventListener } from "./components/EventListener"
+
+import { SimpleCounter } from "./components/useEffectsProjects/SimpleCounter"
+import { SwitcherApp } from "./components/useContextProjects/SwitcherApp"
 
 
 export const App = () => {
     return (
         <main style={{display:"flex", flexDirection: "column", gap: "3rem"}}>
-            <h1>Learning Use Effect</h1>
+            <h1>Learning useEffect</h1>
             <SimpleCounter/>
-            <TodoList/>
+            {/* <TodoList/>
             <DataFetching/>
             <CountdownTimerApp/>
-            <EventListener/>
+            <EventListener/> */}
+            <h1>Learning useContext</h1>
+            <SwitcherApp/>
         </main>
     )
 }
