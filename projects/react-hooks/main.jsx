@@ -5,7 +5,7 @@ import "./style.css"
 import { ThemeProvider } from './src/context/switcher'
 
 ReactDOM.createRoot(document.getElementById('app')).render(
-  <ThemeProvider>
+  // <ThemeProvider>
     <App />
-  </ThemeProvider>,
+  //</ThemeProvider>, 
 )
