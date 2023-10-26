@@ -10,11 +10,12 @@ export const SwitcherApp = () => {
     return (
         <section className={`sectionTheme ${theme}`}>
             <h4>Switcher App</h4>
+            <p>This switcher uses useContext to manage the state globally</p>
             <button
                 onClick={toggleSwitch}
-                style={{ color: "white" }}
+                style={{ color: "white" }}//"{+_
             >
-                Toggle Theme
+                Change Theme Color
             </button>
         </section>
     );

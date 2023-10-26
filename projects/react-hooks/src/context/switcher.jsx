@@ -4,11 +4,15 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
     const [isSwitchOn, setIsSwitchOn] = useState(false);
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState(()=>{
+        const storedData = localStorage.getItem('theme');
+        return storedData ? (storedData) : '';
+    });
 
     useEffect(() => {
         setTheme(isSwitchOn ? "light" : "dark");
-    }, [isSwitchOn]);
+        localStorage.setItem('theme', theme)
+    }, [isSwitchOn, theme]);
 
     const toggleSwitch = () => {
         setIsSwitchOn(!isSwitchOn);
